@@ -107,6 +107,15 @@
 
 <body>
 
+<!-- Preloader. Hides itself with a CSS animation, so it cannot get stuck if
+     JavaScript fails. See `.preloader` in styles.css. -->
+<div class="preloader" aria-hidden="true">
+  <div class="preloader__inner">
+    <img class="preloader__logo" src="assets/img/logo-white.png" alt="" width="566" height="838">
+    <p class="preloader__name">NEAL <span>Clínica Veterinaria</span></p>
+  </div>
+</div>
+
 <a class="skip-link" href="#contenido">Saltar al contenido</a>
 
 <!-- Icon sprite: every icon is referenced with <use href="#icon-*">. -->
@@ -230,7 +239,6 @@
   </symbol>
 </svg>
 
-
 <header class="header" id="inicio">
   <div class="container header__inner">
     <a class="brand" href="#inicio" aria-label="Clínica Veterinaria NEAL — inicio">
@@ -261,22 +269,77 @@
   </div>
 </header>
 
-
 <main id="contenido">
 
   <!-- ===================== Hero ===================== -->
   <section class="hero">
-    <svg class="paw-deco paw-deco--1" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-paw"></use></svg>
-    <svg class="paw-deco paw-deco--2" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-paw"></use></svg>
+    <!-- Background carousel. Decorative: the message is in the copy below, so
+         the images are hidden from assistive tech and only the dots are exposed. -->
+    <div class="hero__slider" aria-hidden="true">
+      <div class="hero__slide is-active" data-slide="0">
+        <picture>
+          <!-- Phones get a portrait crop: the hero is tall and narrow there, so a
+               16:9 frame would be cropped down to a vertical sliver of the photo.
+               `sizes` is explicit because `object-fit: cover` on a tall box needs a
+               source far wider than the viewport; declaring 100vw made the browser
+               download the small file and then the large one. -->
+          <source media="(max-width: 700px)" type="image/webp"
+                  srcset="assets/img/slider/perro-m600.webp 600w, assets/img/slider/perro-m900.webp 900w"
+                  sizes="900px">
+          <source type="image/webp"
+                  srcset="assets/img/slider/perro-800.webp 800w, assets/img/slider/perro-1600.webp 1600w"
+                  sizes="100vw">
+          <img src="assets/img/slider/perro-1600.jpg" alt="Veterinaria auscultando a un perro sobre la camilla de la clínica" width="1600" height="900" fetchpriority="high">
+        </picture>
+      </div>
+      <div class="hero__slide" data-slide="1">
+        <picture>
+          <!-- Phones get a portrait crop: the hero is tall and narrow there, so a
+               16:9 frame would be cropped down to a vertical sliver of the photo.
+               `sizes` is explicit because `object-fit: cover` on a tall box needs a
+               source far wider than the viewport; declaring 100vw made the browser
+               download the small file and then the large one. -->
+          <source media="(max-width: 700px)" type="image/webp"
+                  srcset="assets/img/slider/gato-m600.webp 600w, assets/img/slider/gato-m900.webp 900w"
+                  sizes="900px">
+          <source type="image/webp"
+                  srcset="assets/img/slider/gato-800.webp 800w, assets/img/slider/gato-1600.webp 1600w"
+                  sizes="100vw">
+          <img src="assets/img/slider/gato-1600.jpg" alt="Veterinario revisando a un gato con el estetoscopio" width="1600" height="900" fetchpriority="low" decoding="async">
+        </picture>
+      </div>
+      <div class="hero__slide" data-slide="2">
+        <picture>
+          <!-- Phones get a portrait crop: the hero is tall and narrow there, so a
+               16:9 frame would be cropped down to a vertical sliver of the photo.
+               `sizes` is explicit because `object-fit: cover` on a tall box needs a
+               source far wider than the viewport; declaring 100vw made the browser
+               download the small file and then the large one. -->
+          <source media="(max-width: 700px)" type="image/webp"
+                  srcset="assets/img/slider/campo-m600.webp 600w, assets/img/slider/campo-m900.webp 900w"
+                  sizes="900px">
+          <source type="image/webp"
+                  srcset="assets/img/slider/campo-800.webp 800w, assets/img/slider/campo-1600.webp 1600w"
+                  sizes="100vw">
+          <img src="assets/img/slider/campo-1600.jpg" alt="Veterinario controlando a una vaca en el campo" width="1600" height="900" fetchpriority="low" decoding="async">
+        </picture>
+      </div>
+    </div>
+    <div class="hero__scrim" aria-hidden="true"></div>
 
     <div class="container hero__grid">
       <div class="hero__content">
-        <p class="hero__badge">
-          <span><svg aria-hidden="true"><use href="#icon-paw"></use></svg></span>
-          Grandes y pequeños animales
-        </p>
+        <span class="curtain" style="--curtain-color: var(--violet-300); --curtain-delay: 140ms"><span>
+          <span class="hero__badge">
+            <span><svg aria-hidden="true"><use href="#icon-paw"></use></svg></span>
+            Grandes y pequeños animales
+          </span>
+        </span></span>
 
-        <h1>Cuidamos lo que <span class="hand">más querés</span></h1>
+        <h1>
+          <span class="curtain" style="--curtain-color: var(--violet-400); --curtain-delay: 260ms"><span>Cuidamos lo que</span></span>
+          <span class="curtain hand" style="--curtain-color: var(--violet-200); --curtain-delay: 380ms"><span>más querés</span></span>
+        </h1>
 
         <p class="hero__lead">
           Clínica, cirugías y asesoramiento veterinario con estudios de diagnóstico en el mismo lugar.
@@ -301,13 +364,13 @@
         </ul>
       </div>
 
-      <div class="hero__visual">
-        <div class="hero__card">
-          <img src="assets/img/logo.png" alt="Logotipo de Clínica Veterinaria NEAL: siluetas de vaca, caballo, perro y gato" width="566" height="838" fetchpriority="high">
-          <p class="hero__card-name">NEAL <small>Clínica Veterinaria</small></p>
-          <p class="hand">Juntos por su bienestar</p>
-        </div>
-        <div class="hero__blob" aria-hidden="true"></div>
+    </div>
+
+    <div class="container">
+      <div class="hero__dots" role="group" aria-label="Elegir imagen de fondo">
+        <button class="hero__dot" type="button" data-dot="0" aria-current="true" aria-label="Imagen 1: consulta a un perro"></button>
+        <button class="hero__dot" type="button" data-dot="1" aria-label="Imagen 2: control de un gato"></button>
+        <button class="hero__dot" type="button" data-dot="2" aria-label="Imagen 3: atención a campo"></button>
       </div>
     </div>
 
@@ -315,7 +378,6 @@
       <path fill="currentColor" d="M0 52c180-44 360-52 540-24s360 62 540 34 260-46 360-38v66H0z"/>
     </svg>
   </section>
-
 
   <!-- ===================== Trust strip ===================== -->
   <div class="container">
@@ -338,7 +400,6 @@
       </li>
     </ul>
   </div>
-
 
   <!-- ===================== Services ===================== -->
   <section class="section" id="servicios">
@@ -384,7 +445,6 @@
     </div>
   </section>
 
-
   <!-- ===================== Diagnostics ===================== -->
   <section class="section section--tint" id="diagnostico">
     <div class="container split reveal">
@@ -423,7 +483,6 @@
       </div>
     </div>
   </section>
-
 
   <!-- ===================== O.S. Neal ===================== -->
   <section class="section plan" id="obra-social">
@@ -464,7 +523,6 @@
       </div>
     </div>
   </section>
-
 
   <!-- ===================== Shop, pharmacy & grooming ===================== -->
   <section class="section">
@@ -507,7 +565,6 @@
     </div>
   </section>
 
-
   <!-- ===================== Professional ===================== -->
   <section class="section section--tint" id="profesional">
     <div class="container">
@@ -535,7 +592,6 @@
       </div>
     </div>
   </section>
-
 
   <!-- ===================== Contact ===================== -->
   <section class="section" id="contacto">
@@ -597,7 +653,6 @@
     </div>
   </section>
 
-
   <!-- ===================== Final CTA ===================== -->
   <section class="section" style="padding-top:0">
     <div class="container">
@@ -620,7 +675,6 @@
   </section>
 
 </main>
-
 
 <footer class="footer">
   <div class="container">
@@ -680,7 +734,6 @@
     </div>
   </div>
 </footer>
-
 
 <a class="fab" id="fab-whatsapp" href="https://wa.me/5493625351608?text=Hola%2C%20quiero%20hacer%20una%20consulta%20para%20mi%20mascota." target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
   <svg aria-hidden="true"><use href="#icon-whatsapp"></use></svg>

@@ -84,6 +84,71 @@
   }
 
   /* ---------------------------------------------------------------------
+     Hero background carousel
+
+     Vanilla port of the reference hero slider (React + embla there). Slides
+     cross-fade via CSS; this only decides which one carries `.is-active`.
+     --------------------------------------------------------------------- */
+  (function heroCarousel() {
+    var hero = document.querySelector('.hero');
+    if (!hero) return;
+
+    var slides = hero.querySelectorAll('.hero__slide');
+    var dots = hero.querySelectorAll('.hero__dot');
+    if (slides.length < 2) return;
+
+    var DELAY = 6000;
+    var actual = 0;
+    var timer = null;
+    var pausado = false;
+
+    function mostrar(indice) {
+      actual = (indice + slides.length) % slides.length;
+      for (var i = 0; i < slides.length; i++) {
+        slides[i].classList.toggle('is-active', i === actual);
+        if (dots[i]) {
+          if (i === actual) dots[i].setAttribute('aria-current', 'true');
+          else dots[i].removeAttribute('aria-current');
+        }
+      }
+    }
+
+    function arrancar() {
+      if (reduceMotion || timer) return;
+      timer = window.setInterval(function () {
+        if (!pausado && !document.hidden) mostrar(actual + 1);
+      }, DELAY);
+    }
+
+    function detener() {
+      if (!timer) return;
+      window.clearInterval(timer);
+      timer = null;
+    }
+
+    for (var i = 0; i < dots.length; i++) {
+      (function (indice) {
+        dots[indice].addEventListener('click', function () {
+          mostrar(indice);
+          // Restart the clock so a manual pick gets its full time on screen.
+          detener();
+          arrancar();
+        });
+      })(i);
+    }
+
+    // Pause while the visitor is reading or tabbing through the hero.
+    ['mouseenter', 'focusin'].forEach(function (evento) {
+      hero.addEventListener(evento, function () { pausado = true; });
+    });
+    ['mouseleave', 'focusout'].forEach(function (evento) {
+      hero.addEventListener(evento, function () { pausado = false; });
+    });
+
+    arrancar();
+  })();
+
+  /* ---------------------------------------------------------------------
      Footer year
      --------------------------------------------------------------------- */
   Array.prototype.forEach.call(document.querySelectorAll('[data-year]'), function (el) {

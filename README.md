@@ -165,6 +165,56 @@ Están todos en `:root` dentro de `assets/css/styles.css`.
 Están **auto-hospedadas** en `assets/fonts/` (subsets latin y latin-ext, 124 KB en total).
 No se hace ninguna conexión a Google Fonts: carga más rápido y no filtra datos de los visitantes.
 
+### Hero: preloader y carrusel
+
+Dos piezas portadas del proyecto `vete-digital` (que a su vez las tomaba de una
+plantilla de ThemeForest), **reescritas** para esta landing: allá son React +
+`embla-carousel`; acá son CSS y JavaScript sin dependencias, así el sitio sigue
+sin build.
+
+**Preloader** (`.preloader` en `styles.css`): velo violeta con el logo y el nombre,
+se va solo a los 0,7 s. Es **CSS puro a propósito**: si el JavaScript fallara, no
+puede quedar la pantalla tapada.
+
+**Carrusel de fondo** (`heroCarousel()` en `main.js`): tres fotos que se funden
+cada 6 s detrás del texto del hero.
+
+- Se pausa cuando el mouse entra al hero, cuando algo recibe el foco con el
+  teclado, y cuando la pestaña no está visible.
+- Con `prefers-reduced-motion` no hay autoplay ni fundido: queda la primera foto.
+- Los puntos de abajo permiten elegir la foto a mano.
+- Las fotos son **decorativas** (`aria-hidden`): el mensaje está en el texto.
+
+**Efecto cortina** (`.curtain`): el bloque de color que barre el título y lo
+descubre. Se dispara con la clase `.js` que pone el `<script>` del `<head>`, y no
+desde `main.js`, para que un error en el JS no pueda dejar el título invisible.
+
+### Imágenes del hero
+
+Tres fotos de **[Pexels](https://www.pexels.com/license/)** (licencia libre, uso
+comercial permitido, sin atribución obligatoria):
+
+| Archivo | Qué muestra | Origen |
+|---------|-------------|--------|
+| `perro-*` | Consulta a un perro en la clínica | [Pexels #39550290](https://www.pexels.com/photo/39550290/) |
+| `gato-*` | Control de un gato con estetoscopio | [Pexels #28644631](https://www.pexels.com/photo/28644631/) |
+| `campo-*` | Atención a una vaca a campo | [Pexels #38117650](https://www.pexels.com/photo/38117650/) |
+
+De cada una hay dos recortes, porque el hero tiene forma muy distinta en cada
+pantalla:
+
+- `-800` / `-1600`: apaisado 16:9, para escritorio.
+- `-m600` / `-m900`: vertical 3:4, para celular. **Sin esto el celular recortaba
+  la foto a una franja vertical** (el hero ahí es angosto y alto) y además
+  descargaba la versión grande al pedo.
+
+**Para cambiarlas por fotos reales de la clínica**: reemplazar los archivos
+manteniendo los nombres y las proporciones (16:9 y 3:4). El script que las generó
+quedó documentado en el historial de git.
+
+> Cuando el cliente mande fotos propias, conviene usarlas: son de la clínica real,
+> con su equipo y sus instalaciones, y eso vende mucho más que una foto de stock.
+
 ### Logo
 
 `assets/img/logo.png` y `logo-white.png` se **extrajeron del flyer original** con recorte,
@@ -191,9 +241,11 @@ landing_neal/
 │   ├── css/
 │   │   ├── fonts.css       # @font-face de Poppins y Caveat
 │   │   └── styles.css      # tokens + estilos (secciones numeradas)
-│   ├── js/main.js          # menú móvil, header sticky, reveal, botón flotante
+│   ├── js/main.js          # menú móvil, header, carrusel del hero, reveal, FAB
 │   ├── fonts/              # .woff2 auto-hospedados
-│   └── img/                # logo, íconos, imagen para compartir
+│   └── img/
+│       ├── slider/         # fotos del hero (16:9 escritorio, 3:4 celular)
+│       └── ...             # logo, íconos, imagen para compartir
 └── docs/                   # carteles originales (en .gitignore, no va al repo)
 ```
 
@@ -225,4 +277,6 @@ Tomado de los dos carteles:
   contraste alto y soporte de `prefers-reduced-motion`.
 - La animación de aparición al scrollear está condicionada a que haya JS
   (clase `.js` en `<html>`): sin JavaScript el contenido igual se ve completo.
-- Peso total del sitio: ~350 KB (incluidas fuentes e imágenes).
+- Peso total: ~370 KB en celular y ~820 KB en escritorio (incluidas las tres
+  fotos del hero, las fuentes y el logo). Sin las fotos, el sitio son ~350 KB.
+- Las fotos van en WebP con JPEG de respaldo para iOS anterior al 14.
