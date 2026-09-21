@@ -1,0 +1,1081 @@
+/* ==========================================================================
+   Clínica Veterinaria NEAL — landing page styles
+   Palette sampled directly from the printed signage artwork.
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design tokens
+   -------------------------------------------------------------------------- */
+:root {
+  /* Brand violets, sampled from the logo silhouettes and the flyer. */
+  --violet-900: #211b46;
+  --violet-800: #282e62;
+  --violet-700: #342c6b;
+  --violet-600: #3f3480;
+  --violet-500: #4b3d96; /* primary */
+  --violet-400: #5f51a8;
+  --violet-300: #7c6ab1;
+  --violet-200: #a99bd8;
+  --violet-100: #d5d2e8;
+  --violet-50:  #ecebf4;
+  --violet-25:  #f6f5fb;
+
+  --ink:        #221d45;
+  --body:       #4a4468;
+  --muted:      #6d6689;
+  --white:      #ffffff;
+  --whatsapp:   #1fa855;
+  --whatsapp-dark: #16833f;
+
+  --font-sans: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-hand: 'Caveat', 'Segoe Script', cursive;
+
+  --radius-sm: 12px;
+  --radius:    18px;
+  --radius-lg: 26px;
+  --radius-pill: 999px;
+
+  --shadow-sm: 0 2px 8px rgba(34, 29, 69, .06);
+  --shadow:    0 10px 30px -12px rgba(34, 29, 69, .18);
+  --shadow-lg: 0 26px 60px -24px rgba(34, 29, 69, .34);
+
+  --container: 1140px;
+  --gutter: 20px;
+  --header-h: 68px;
+
+  --section-y: clamp(56px, 8vw, 104px);
+}
+
+/* --------------------------------------------------------------------------
+   2. Reset & base
+   -------------------------------------------------------------------------- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+  /* Keep anchored sections clear of the sticky header. */
+  scroll-padding-top: calc(var(--header-h) + 12px);
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.65;
+  color: var(--body);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img,
+svg { display: block; max-width: 100%; }
+
+img { height: auto; }
+
+a { color: var(--violet-500); text-decoration: none; }
+
+a:hover { color: var(--violet-700); }
+
+h1, h2, h3, h4 {
+  margin: 0 0 .5em;
+  color: var(--ink);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -.02em;
+}
+
+p { margin: 0 0 1em; }
+
+ul { margin: 0; padding: 0; list-style: none; }
+
+:focus-visible {
+  outline: 3px solid var(--violet-400);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.skip-link {
+  position: absolute;
+  left: 50%;
+  top: 8px;
+  z-index: 200;
+  padding: 10px 18px;
+  transform: translate(-50%, -160%);
+  background: var(--violet-500);
+  color: var(--white);
+  border-radius: var(--radius-pill);
+  font-weight: 600;
+  transition: transform .2s ease;
+}
+
+.skip-link:focus-visible {
+  transform: translate(-50%, 0);
+  color: var(--white);
+}
+
+/* --------------------------------------------------------------------------
+   3. Layout helpers
+   -------------------------------------------------------------------------- */
+.container {
+  width: 100%;
+  max-width: var(--container);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section { padding-block: var(--section-y); position: relative; }
+
+.section--tint { background: var(--violet-25); }
+
+.section-head {
+  max-width: 660px;
+  margin: 0 auto clamp(32px, 5vw, 56px);
+  text-align: center;
+}
+
+.section-head p { color: var(--muted); margin-bottom: 0; }
+
+.eyebrow {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 6px 16px;
+  border-radius: var(--radius-pill);
+  background: var(--violet-50);
+  color: var(--violet-500);
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+h2 { font-size: clamp(1.7rem, 4.2vw, 2.5rem); }
+
+h3 { font-size: 1.12rem; }
+
+.hand {
+  font-family: var(--font-hand);
+  font-weight: 700;
+  color: var(--violet-400);
+  letter-spacing: 0;
+  line-height: .95;
+}
+
+/* Caveat runs small next to Poppins, so inline uses need a size bump. */
+p .hand,
+li .hand { font-size: 1.4em; }
+
+/* --------------------------------------------------------------------------
+   4. Buttons
+   -------------------------------------------------------------------------- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 26px;
+  border: 2px solid transparent;
+  border-radius: var(--radius-pill);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: center;
+  cursor: pointer;
+  transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease,
+              border-color .18s ease, color .18s ease;
+}
+
+.btn svg { width: 20px; height: 20px; flex: none; }
+
+.btn:hover { transform: translateY(-2px); }
+
+.btn:active { transform: translateY(0); }
+
+.btn--primary {
+  background: var(--violet-500);
+  color: var(--white);
+  box-shadow: 0 12px 24px -12px rgba(75, 61, 150, .75);
+}
+
+.btn--primary:hover { background: var(--violet-600); color: var(--white); }
+
+.btn--whatsapp {
+  background: var(--whatsapp);
+  color: var(--white);
+  box-shadow: 0 12px 24px -12px rgba(31, 168, 85, .8);
+}
+
+.btn--whatsapp:hover { background: var(--whatsapp-dark); color: var(--white); }
+
+.btn--ghost {
+  background: var(--white);
+  border-color: var(--violet-100);
+  color: var(--violet-600);
+}
+
+.btn--ghost:hover {
+  border-color: var(--violet-400);
+  color: var(--violet-700);
+  box-shadow: var(--shadow-sm);
+}
+
+.btn--light {
+  background: var(--white);
+  color: var(--violet-600);
+}
+
+.btn--light:hover { background: var(--violet-50); color: var(--violet-700); }
+
+.btn--outline-light {
+  border-color: rgba(255, 255, 255, .55);
+  color: var(--white);
+}
+
+.btn--outline-light:hover {
+  background: rgba(255, 255, 255, .12);
+  border-color: var(--white);
+  color: var(--white);
+}
+
+.btn--sm { padding: 10px 20px; font-size: .92rem; }
+
+.btn--block { width: 100%; }
+
+/* --------------------------------------------------------------------------
+   5. Header
+   -------------------------------------------------------------------------- */
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, .88);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid transparent;
+  transition: border-color .25s ease, box-shadow .25s ease;
+}
+
+.header.is-stuck {
+  border-bottom-color: var(--violet-50);
+  box-shadow: var(--shadow-sm);
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-height: var(--header-h);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-right: auto;
+  color: var(--ink);
+}
+
+.brand:hover { color: var(--ink); }
+
+.brand img { width: 34px; height: auto; }
+
+.brand__name {
+  font-size: 1.02rem;
+  font-weight: 700;
+  letter-spacing: .04em;
+  line-height: 1;
+}
+
+.brand__sub {
+  display: block;
+  font-size: .58rem;
+  font-weight: 500;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 3px;
+}
+
+.nav { display: flex; align-items: center; gap: 4px; }
+
+/* :not(.btn) keeps these rules from overriding the WhatsApp button colours. */
+.nav a:not(.btn) {
+  padding: 9px 14px;
+  border-radius: var(--radius-pill);
+  color: var(--body);
+  font-size: .94rem;
+  font-weight: 500;
+  transition: background-color .18s ease, color .18s ease;
+}
+
+.nav a:not(.btn):hover { background: var(--violet-50); color: var(--violet-700); }
+
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  background: var(--violet-50);
+  border: 0;
+  border-radius: 12px;
+  color: var(--violet-600);
+  cursor: pointer;
+}
+
+.nav-toggle svg { width: 22px; height: 22px; }
+
+.nav-toggle .icon-close,
+.nav-toggle[aria-expanded='true'] .icon-open { display: none; }
+
+.nav-toggle[aria-expanded='true'] .icon-close { display: block; }
+
+/* --------------------------------------------------------------------------
+   6. Hero
+   -------------------------------------------------------------------------- */
+.hero {
+  position: relative;
+  overflow: hidden;
+  padding-block: clamp(44px, 7vw, 84px) clamp(72px, 10vw, 128px);
+  background:
+    radial-gradient(1000px 520px at 88% -8%, var(--violet-50), transparent 62%),
+    linear-gradient(180deg, var(--white) 0%, var(--violet-25) 100%);
+}
+
+.hero__grid {
+  display: grid;
+  gap: clamp(36px, 5vw, 56px);
+  align-items: center;
+}
+
+.hero__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  margin-bottom: 20px;
+  padding: 7px 16px 7px 8px;
+  background: var(--white);
+  border: 1px solid var(--violet-100);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-sm);
+  font-size: .82rem;
+  font-weight: 600;
+  color: var(--violet-600);
+}
+
+.hero__badge span {
+  display: grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--violet-500);
+  color: var(--white);
+}
+
+.hero__badge svg { width: 15px; height: 15px; }
+
+.hero h1 {
+  font-size: clamp(2.3rem, 7.4vw, 4.1rem);
+  margin-bottom: 20px;
+}
+
+.hero h1 .hand {
+  display: block;
+  font-size: 1.28em;
+  margin-top: .04em;
+}
+
+.hero__lead {
+  max-width: 54ch;
+  font-size: clamp(1.02rem, 2.2vw, 1.14rem);
+  color: var(--body);
+  margin-bottom: 28px;
+}
+
+.hero__cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+
+.hero__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px 22px;
+  font-size: .9rem;
+  color: var(--muted);
+}
+
+.hero__meta li { display: flex; align-items: center; gap: 8px; }
+
+.hero__meta svg { width: 18px; height: 18px; color: var(--violet-400); flex: none; }
+
+/* Hero visual: the logo on a soft card, echoing the counter signage. */
+.hero__visual { position: relative; justify-self: center; }
+
+.hero__card {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 18px;
+  justify-items: center;
+  padding: clamp(28px, 5vw, 44px) clamp(24px, 5vw, 48px);
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  text-align: center;
+}
+
+.hero__card img { width: clamp(132px, 26vw, 186px); }
+
+.hero__card .hand { font-size: 1.8rem; color: var(--violet-400); }
+
+.hero__card-name {
+  font-size: 1.36rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+  color: var(--violet-600);
+  line-height: 1;
+}
+
+.hero__card-name small {
+  display: block;
+  margin-top: 7px;
+  font-size: .56rem;
+  letter-spacing: .28em;
+  color: var(--muted);
+  font-weight: 500;
+}
+
+.hero__blob {
+  position: absolute;
+  inset: auto -8% -14% -8%;
+  height: 78%;
+  background: linear-gradient(135deg, var(--violet-300), var(--violet-500));
+  border-radius: 46% 54% 38% 62% / 50% 42% 58% 50%;
+  opacity: .22;
+  z-index: 1;
+}
+
+/* Decorative wave that closes the hero, mirroring the printed artwork. */
+.hero__wave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  width: 100%;
+  height: clamp(46px, 7vw, 92px);
+  color: var(--white);
+}
+
+.paw-deco {
+  position: absolute;
+  color: var(--violet-200);
+  opacity: .28;
+  pointer-events: none;
+}
+
+.paw-deco--1 { top: 12%; left: 4%; width: 46px; transform: rotate(-18deg); }
+
+.paw-deco--2 { bottom: 22%; right: 6%; width: 34px; transform: rotate(14deg); }
+
+/* --------------------------------------------------------------------------
+   7. Trust strip
+   -------------------------------------------------------------------------- */
+.trust {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin-top: calc(var(--section-y) * -.42);
+  position: relative;
+  z-index: 3;
+}
+
+.trust__item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  background: var(--white);
+  border: 1px solid var(--violet-50);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.trust__item svg { width: 26px; height: 26px; color: var(--violet-500); flex: none; }
+
+.trust__item strong {
+  display: block;
+  color: var(--ink);
+  font-size: .98rem;
+  line-height: 1.25;
+}
+
+.trust__item span { font-size: .84rem; color: var(--muted); }
+
+/* --------------------------------------------------------------------------
+   8. Services
+   -------------------------------------------------------------------------- */
+/* Six services: one column on phones, then 2x3 and 3x2 so no row is orphaned. */
+.services {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+}
+
+@media (min-width: 620px) {
+  .services { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (min-width: 960px) {
+  .services { grid-template-columns: repeat(3, 1fr); }
+}
+
+.service {
+  padding: 26px 24px;
+  background: var(--white);
+  border: 1px solid var(--violet-50);
+  border-radius: var(--radius);
+  transition: transform .22s ease, box-shadow .22s ease, border-color .22s ease;
+}
+
+.service:hover {
+  transform: translateY(-4px);
+  border-color: var(--violet-100);
+  box-shadow: var(--shadow);
+}
+
+.service__icon {
+  display: grid;
+  place-items: center;
+  width: 52px;
+  height: 52px;
+  margin-bottom: 16px;
+  border-radius: 15px;
+  background: var(--violet-50);
+  color: var(--violet-500);
+}
+
+.service__icon svg { width: 27px; height: 27px; }
+
+.service h3 { margin-bottom: 6px; }
+
+.service p { margin: 0; font-size: .93rem; color: var(--muted); }
+
+/* --------------------------------------------------------------------------
+   9. Diagnostics (split section)
+   -------------------------------------------------------------------------- */
+.split {
+  display: grid;
+  gap: clamp(32px, 5vw, 64px);
+  align-items: center;
+}
+
+.split__media {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 14px;
+}
+
+.tile {
+  display: grid;
+  gap: 8px;
+  padding: 24px 20px;
+  border-radius: var(--radius);
+  background: var(--white);
+  border: 1px solid var(--violet-50);
+  box-shadow: var(--shadow-sm);
+  text-align: center;
+}
+
+.tile svg { width: 30px; height: 30px; margin-inline: auto; color: var(--violet-500); }
+
+.tile strong { color: var(--ink); font-size: .98rem; }
+
+.tile span { font-size: .82rem; color: var(--muted); line-height: 1.4; }
+
+.tile--accent {
+  background: linear-gradient(140deg, var(--violet-500), var(--violet-700));
+  border-color: transparent;
+}
+
+.tile--accent svg,
+.tile--accent strong { color: var(--white); }
+
+.tile--accent span { color: rgba(255, 255, 255, .8); }
+
+.checklist { display: grid; gap: 12px; margin-top: 8px; }
+
+.checklist li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: .97rem;
+}
+
+.checklist svg {
+  width: 21px;
+  height: 21px;
+  flex: none;
+  margin-top: 2px;
+  color: var(--violet-500);
+}
+
+/* --------------------------------------------------------------------------
+   10. Obra social (inverted band)
+   -------------------------------------------------------------------------- */
+.plan {
+  position: relative;
+  overflow: hidden;
+  color: rgba(255, 255, 255, .82);
+  background: linear-gradient(135deg, var(--violet-600) 0%, var(--violet-800) 100%);
+}
+
+.plan::after {
+  content: '';
+  position: absolute;
+  width: 420px;
+  height: 420px;
+  right: -140px;
+  top: -160px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, .06);
+}
+
+.plan .container { position: relative; z-index: 1; }
+
+.plan h2,
+.plan h3 { color: var(--white); }
+
+.plan .eyebrow { background: rgba(255, 255, 255, .14); color: var(--white); }
+
+.plan__grid {
+  display: grid;
+  gap: clamp(32px, 5vw, 56px);
+  align-items: center;
+}
+
+.plan__logo { width: clamp(96px, 18vw, 132px); margin-bottom: 22px; }
+
+.plan__benefits { display: grid; gap: 14px; margin-bottom: 30px; }
+
+.plan__benefits li {
+  display: flex;
+  align-items: flex-start;
+  gap: 13px;
+  font-size: .98rem;
+}
+
+.plan__benefits svg {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  margin-top: 2px;
+  color: var(--violet-200);
+}
+
+.plan__cta { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.plan__card {
+  padding: clamp(26px, 4vw, 38px);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .16);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.plan__card p:last-child { margin-bottom: 0; }
+
+.plan__card .hand {
+  font-size: 2rem;
+  color: var(--violet-200);
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* --------------------------------------------------------------------------
+   11. Shop / grooming pills
+   -------------------------------------------------------------------------- */
+.pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+
+.pills li {
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  background: var(--violet-50);
+  color: var(--violet-600);
+  font-size: .9rem;
+  font-weight: 500;
+}
+
+/* --------------------------------------------------------------------------
+   12. Professional card
+   -------------------------------------------------------------------------- */
+.vet {
+  display: grid;
+  gap: clamp(26px, 4vw, 46px);
+  align-items: center;
+  padding: clamp(28px, 5vw, 52px);
+  background: var(--white);
+  border: 1px solid var(--violet-50);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+}
+
+.vet__avatar {
+  display: grid;
+  place-items: center;
+  width: clamp(118px, 22vw, 156px);
+  aspect-ratio: 1;
+  margin-inline: auto;
+  border-radius: 50%;
+  background: linear-gradient(140deg, var(--violet-50), var(--violet-100));
+}
+
+.vet__avatar img { width: 62%; }
+
+.vet h2 { margin-bottom: 4px; font-size: clamp(1.45rem, 3.4vw, 1.95rem); }
+
+.vet__role {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding: 6px 15px;
+  border-radius: var(--radius-pill);
+  background: var(--violet-50);
+  color: var(--violet-600);
+  font-size: .86rem;
+  font-weight: 600;
+}
+
+.vet__role svg { width: 16px; height: 16px; }
+
+.vet p:last-child { margin-bottom: 0; }
+
+/* --------------------------------------------------------------------------
+   13. Contact
+   -------------------------------------------------------------------------- */
+.contact-grid {
+  display: grid;
+  gap: 18px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+
+.contact-card {
+  display: grid;
+  gap: 6px;
+  padding: 26px 24px;
+  background: var(--white);
+  border: 1px solid var(--violet-50);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-sm);
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+
+a.contact-card:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+
+.contact-card__icon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  margin-bottom: 8px;
+  border-radius: 13px;
+  background: var(--violet-50);
+  color: var(--violet-500);
+}
+
+.contact-card__icon svg { width: 24px; height: 24px; }
+
+.contact-card strong { color: var(--ink); font-size: 1rem; }
+
+.contact-card span { color: var(--muted); font-size: .92rem; }
+
+.contact-card__value {
+  color: var(--violet-600);
+  font-weight: 600;
+  font-size: 1.04rem;
+  word-break: break-word;
+}
+
+.hours { display: grid; gap: 8px; margin-top: 4px; }
+
+.hours li {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px dashed var(--violet-100);
+  font-size: .94rem;
+}
+
+.hours li:last-child { border-bottom: 0; padding-bottom: 0; }
+
+.hours strong { color: var(--ink); font-weight: 600; }
+
+.hours span { color: var(--muted); }
+
+.map {
+  margin-top: 26px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--violet-50);
+  box-shadow: var(--shadow-sm);
+  background: var(--violet-25);
+}
+
+.map iframe {
+  display: block;
+  width: 100%;
+  height: clamp(260px, 42vw, 400px);
+  border: 0;
+}
+
+.map__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 14px 18px;
+  border-top: 1px solid var(--violet-50);
+  background: var(--white);
+  font-weight: 600;
+  font-size: .95rem;
+}
+
+.map__link svg { width: 19px; height: 19px; }
+
+/* --------------------------------------------------------------------------
+   14. Final CTA + footer
+   -------------------------------------------------------------------------- */
+.cta-band {
+  display: grid;
+  gap: 22px;
+  justify-items: center;
+  padding: clamp(36px, 6vw, 60px) clamp(24px, 5vw, 56px);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(135deg, var(--violet-500), var(--violet-700));
+  text-align: center;
+  color: rgba(255, 255, 255, .85);
+}
+
+.cta-band h2 { color: var(--white); margin-bottom: 0; }
+
+.cta-band p { margin: 0; max-width: 52ch; }
+
+.cta-band .hand { color: var(--violet-200); font-size: 2.1rem; }
+
+.cta-band__actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+
+.footer {
+  padding-block: 48px 30px;
+  background: var(--violet-900);
+  color: rgba(255, 255, 255, .62);
+  font-size: .9rem;
+}
+
+.footer__grid {
+  display: grid;
+  gap: 32px;
+  grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  padding-bottom: 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, .12);
+}
+
+.footer h4 {
+  margin-bottom: 14px;
+  color: var(--white);
+  font-size: .8rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+
+.footer a { color: rgba(255, 255, 255, .72); }
+
+.footer a:hover { color: var(--white); }
+
+.footer__brand { display: flex; align-items: center; gap: 12px; margin-bottom: 16px; }
+
+.footer__brand img { width: 42px; }
+
+.footer__brand strong {
+  display: block;
+  color: var(--white);
+  font-size: 1.06rem;
+  letter-spacing: .06em;
+  line-height: 1.2;
+}
+
+.footer__brand span { font-size: .66rem; letter-spacing: .2em; text-transform: uppercase; }
+
+.footer__links { display: grid; gap: 9px; }
+
+.socials { display: flex; gap: 10px; margin-top: 4px; }
+
+.socials a {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 13px;
+  background: rgba(255, 255, 255, .1);
+  color: var(--white);
+  transition: background-color .2s ease, transform .2s ease;
+}
+
+.socials a:hover { background: var(--violet-500); transform: translateY(-2px); }
+
+.socials svg { width: 21px; height: 21px; }
+
+.footer__bottom {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 20px;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 22px;
+  font-size: .84rem;
+}
+
+/* --------------------------------------------------------------------------
+   15. Floating WhatsApp action (mobile-first: most visitors arrive by QR)
+   -------------------------------------------------------------------------- */
+.fab {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 90;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 20px;
+  border-radius: var(--radius-pill);
+  background: var(--whatsapp);
+  color: var(--white);
+  font-weight: 600;
+  box-shadow: 0 14px 30px -10px rgba(22, 131, 63, .7);
+  transform: translateY(120%);
+  transition: transform .3s ease, background-color .2s ease;
+}
+
+.fab.is-visible { transform: translateY(0); }
+
+.fab:hover { background: var(--whatsapp-dark); color: var(--white); }
+
+.fab svg { width: 22px; height: 22px; }
+
+.fab__label { display: none; }
+
+/* --------------------------------------------------------------------------
+   16. Reveal on scroll
+   -------------------------------------------------------------------------- */
+/* The hidden state is scoped to .js so the page stays readable without
+   JavaScript (and while the IntersectionObserver has not fired yet). */
+.js .reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity .6s ease, transform .6s ease;
+}
+
+.js .reveal.is-in { opacity: 1; transform: none; }
+
+/* --------------------------------------------------------------------------
+   17. Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 859px) {
+  .paw-deco { display: none; }
+
+  .nav {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: var(--gutter);
+    right: var(--gutter);
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 2px;
+    padding: 10px;
+    background: var(--white);
+    border: 1px solid var(--violet-50);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .nav.is-open { display: flex; }
+
+  .nav a:not(.btn) { padding: 12px 14px; font-size: 1rem; }
+
+  .nav .btn { margin-top: 6px; }
+
+  .nav-toggle { display: inline-flex; }
+
+  .header__inner { position: relative; }
+
+  .header__cta { display: none; }
+}
+
+@media (min-width: 560px) {
+  .fab__label { display: inline; }
+}
+
+@media (min-width: 860px) {
+  :root { --header-h: 76px; }
+
+  .brand img { width: 40px; }
+
+  .brand__name { font-size: 1.1rem; }
+
+  .hero__grid { grid-template-columns: 1.08fr .92fr; }
+
+  .split { grid-template-columns: 1fr 1fr; }
+
+  .split--reverse .split__content { order: 2; }
+
+  .plan__grid { grid-template-columns: 1.05fr .95fr; }
+
+  .vet { grid-template-columns: auto 1fr; text-align: left; }
+
+  .vet__avatar { margin-inline: 0; }
+
+  .fab { right: 24px; bottom: 24px; }
+}
+
+/* --------------------------------------------------------------------------
+   18. Motion & print
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+
+  .js .reveal { opacity: 1; transform: none; }
+
+  .fab { transform: none; }
+}
+
+@media print {
+  .header,
+  .fab,
+  .map,
+  .nav-toggle { display: none !important; }
+
+  body { color: #000; }
+
+  .plan,
+  .cta-band,
+  .footer { background: none !important; color: #000 !important; }
+}

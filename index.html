@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- ==========================================================================
+     Clínica Veterinaria NEAL — static landing page (QR destination).
+     Pending real data is marked with "TODO:" comments; see README.md.
+     ========================================================================== -->
+
+<title>Clínica Veterinaria NEAL | Cuidamos lo que más querés</title>
+<meta name="description" content="Clínica Veterinaria NEAL: consultas, vacunación, cirugías, ecografía, Rx y laboratorio para grandes y pequeños animales. Obra social para mascotas O.S. Neal, pet shop, farmacia y peluquería. Dr. Persoglia Juan Darío, M.P. 1175.">
+<meta name="theme-color" content="#4b3d96">
+<meta name="author" content="Clínica Veterinaria NEAL">
+<meta name="robots" content="index, follow">
+
+<!-- Currently served from GitHub Pages.
+     TODO: when the clinic gets its own domain, replace every occurrence of
+     acantoscurria.github.io/clinica-veterinaria-neal/ (canonical, og:url,
+     og:image, JSON-LD, robots.txt, sitemap.xml). -->
+<link rel="canonical" href="https://acantoscurria.github.io/clinica-veterinaria-neal/">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Clínica Veterinaria NEAL">
+<meta property="og:locale" content="es_AR">
+<meta property="og:title" content="Clínica Veterinaria NEAL | Cuidamos lo que más querés">
+<meta property="og:description" content="Atención integral para grandes y pequeños animales: consultas, vacunación, cirugías, ecografía, Rx y laboratorio. Obra social para mascotas O.S. Neal.">
+<meta property="og:url" content="https://acantoscurria.github.io/clinica-veterinaria-neal/">
+<meta property="og:image" content="https://acantoscurria.github.io/clinica-veterinaria-neal/assets/img/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="assets/img/favicon.ico" sizes="any">
+<link rel="icon" href="assets/img/icon-192.png" type="image/png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="manifest" href="site.webmanifest">
+
+<!-- Flags JS support before first paint so scroll-reveal never hides content. -->
+<script>document.documentElement.classList.add('js');</script>
+
+<!-- fonts.css is tiny and comes first so @font-face is discovered immediately. -->
+<link rel="stylesheet" href="assets/css/fonts.css">
+<link rel="stylesheet" href="assets/css/styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "VeterinaryCare",
+  "name": "Clínica Veterinaria NEAL",
+  "description": "Clínica, cirugías y asesoramiento en grandes y pequeños animales. Obra social para mascotas O.S. Neal, pet shop, farmacia, peluquería, ecografía, radiografía y laboratorio.",
+  "url": "https://acantoscurria.github.io/clinica-veterinaria-neal/",
+  "logo": "https://acantoscurria.github.io/clinica-veterinaria-neal/assets/img/icon-512.png",
+  "image": "https://acantoscurria.github.io/clinica-veterinaria-neal/assets/img/og-image.jpg",
+  "telephone": "+543625351608",
+  "slogan": "Cuidamos lo que más querés",
+  "priceRange": "$$",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "TODO: calle y número",
+    "addressLocality": "TODO: localidad",
+    "addressRegion": "Chaco",
+    "addressCountry": "AR"
+  },
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "08:00",
+      "closes": "12:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "16:00",
+      "closes": "20:00"
+    },
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Saturday"],
+      "opens": "09:00",
+      "closes": "13:00"
+    }
+  ],
+  "sameAs": [
+    "https://www.instagram.com/clinicaveterinarianeal/",
+    "https://www.facebook.com/"
+  ],
+  "employee": {
+    "@type": "Person",
+    "name": "Juan Darío Persoglia",
+    "jobTitle": "Médico Veterinario — M.P. N° 1175"
+  },
+  "makesOffer": [
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Consultas veterinarias" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Vacunación" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Desparasitación" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Cirugías" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Salud dental" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ecografía, radiografía y laboratorio" } },
+    { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "O.S. Neal — obra social para mascotas" } }
+  ]
+}
+</script>
+</head>
+
+<body>
+
+<a class="skip-link" href="#contenido">Saltar al contenido</a>
+
+<!-- Icon sprite: every icon is referenced with <use href="#icon-*">. -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+
+  <symbol id="icon-stethoscope" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M5 3v5a4 4 0 0 0 8 0V3"/><path d="M3.5 3h3M11.5 3h3"/>
+    <path d="M9 12v2.5A5.5 5.5 0 0 0 14.5 20h.5a4 4 0 0 0 4-4v-2"/>
+    <circle cx="19" cy="11" r="2.2"/>
+  </symbol>
+
+  <symbol id="icon-syringe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M19.5 3.5 21 5M17 6l1.5 1.5"/>
+    <path d="M14.5 5.5 18.5 9.5 11 17H7v-4z"/>
+    <path d="M12 8l2 2M9.5 10.5l2 2"/><path d="M6 18l-3 3"/>
+  </symbol>
+
+  <symbol id="icon-paw" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <ellipse cx="7" cy="8" rx="1.9" ry="2.4"/><ellipse cx="12" cy="6.2" rx="1.9" ry="2.5"/>
+    <ellipse cx="17" cy="8" rx="1.9" ry="2.4"/><ellipse cx="19.6" cy="12.6" rx="1.7" ry="2"/>
+    <path d="M12 12c2.6 0 5 2.1 5 4.6 0 2-1.5 3-3.2 3-.9 0-1.3-.4-1.8-.4s-.9.4-1.8.4c-1.7 0-3.2-1-3.2-3C7 14.1 9.4 12 12 12z"/>
+  </symbol>
+
+  <symbol id="icon-heart-pulse" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M20.4 6.4a4.6 4.6 0 0 0-6.5 0L12 8.3l-1.9-1.9a4.6 4.6 0 1 0-6.5 6.5l1.9 1.9L12 21l6.5-6.2 1.9-1.9a4.6 4.6 0 0 0 0-6.5z"/>
+    <path d="M3.5 12.5h3L8 10l2 5 1.8-3.5H14"/>
+  </symbol>
+
+  <symbol id="icon-surgery" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2.5 19.5 5v6.2c0 4.3-3 8-7.5 10.3C7.5 19.2 4.5 15.5 4.5 11.2V5z"/>
+    <path d="M12 8.5v6M9 11.5h6"/>
+  </symbol>
+
+  <symbol id="icon-tooth" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 3.2c1.4 0 2.2.8 4 .8s2.6-.8 4-.8c2.3 0 3.8 1.9 3.8 4.6 0 2.3-.8 3.6-1.3 5.6-.4 1.6-.6 3.4-1 5-.3 1.4-.9 2.4-1.8 2.4-1.2 0-1.5-1.3-1.8-3-.3-1.6-.6-2.9-1.9-2.9s-1.6 1.3-1.9 2.9c-.3 1.7-.6 3-1.8 3-.9 0-1.5-1-1.8-2.4-.4-1.6-.6-3.4-1-5-.5-2-1.3-3.3-1.3-5.6C4.2 5.1 5.7 3.2 8 3.2z"/>
+  </symbol>
+
+  <symbol id="icon-ultrasound" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4.5 16.5 14 4.2a2.4 2.4 0 0 1 3.9 2.8L11.5 16"/>
+    <path d="M3 17.6 7 21l2.6-2.5-4-3.4z"/>
+    <path d="M17.5 12.5a4.2 4.2 0 0 1 0 5M20.2 10.8a7.4 7.4 0 0 1 0 8.4"/>
+  </symbol>
+
+  <symbol id="icon-xray" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="3" width="18" height="18" rx="2.6"/>
+    <path d="M12 6.5v11M8 8.5c1.6.9 2.8 1.4 4 1.4s2.4-.5 4-1.4M8 12.5c1.6.9 2.8 1.4 4 1.4s2.4-.5 4-1.4"/>
+  </symbol>
+
+  <symbol id="icon-lab" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M9.5 3v6.2L4.8 17c-.9 1.5.2 3.4 2 3.4h10.4c1.8 0 2.9-1.9 2-3.4L14.5 9.2V3"/>
+    <path d="M8 3h8M7.4 14.5h9.2"/>
+  </symbol>
+
+  <symbol id="icon-scissors" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="6" cy="6.5" r="2.6"/><circle cx="6" cy="17.5" r="2.6"/>
+    <path d="M8.3 8.2 20 19M20 5 8.3 15.8"/>
+  </symbol>
+
+  <symbol id="icon-shop" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 8h16l-1.2 11.2a2 2 0 0 1-2 1.8H7.2a2 2 0 0 1-2-1.8z"/>
+    <path d="M8.5 11V7a3.5 3.5 0 0 1 7 0v4"/>
+  </symbol>
+
+  <symbol id="icon-pharmacy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2.6" y="8.6" width="18.8" height="12.8" rx="2.4"/>
+    <path d="M12 12v6M9 15h6"/><path d="M7.5 8.6 9 3.4h6l1.5 5.2"/>
+  </symbol>
+
+  <symbol id="icon-livestock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M3.2 6.2c1.5-.4 2.6.2 3.3 1.3"/><path d="M20.8 6.2c-1.5-.4-2.6.2-3.3 1.3"/>
+    <path d="M6.5 7.5C6.5 5 9 3.6 12 3.6s5.5 1.4 5.5 3.9c0 2.6-1.4 4.4-1.4 6.3 0 1.4.6 2.3.6 3.4 0 1.9-1.9 3.2-4.7 3.2s-4.7-1.3-4.7-3.2c0-1.1.6-2 .6-3.4 0-1.9-1.4-3.7-1.4-6.3z"/>
+    <path d="M10.3 9.6h.01M13.7 9.6h.01"/>
+    <path d="M10.6 15.4c.4.5.9.7 1.4.7s1-.2 1.4-.7"/>
+  </symbol>
+
+  <symbol id="icon-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M12 2.5 19.5 5v6.2c0 4.3-3 8-7.5 10.3C7.5 19.2 4.5 15.5 4.5 11.2V5z"/>
+    <path d="m8.8 11.8 2.2 2.2 4.2-4.4"/>
+  </symbol>
+
+  <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9.2"/><path d="m8.2 12.2 2.6 2.6 5-5.4"/>
+  </symbol>
+
+  <symbol id="icon-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M21 16.5v2.7a1.9 1.9 0 0 1-2.1 1.9 18.7 18.7 0 0 1-8.1-2.9 18.3 18.3 0 0 1-5.6-5.6A18.7 18.7 0 0 1 2.3 4.4 1.9 1.9 0 0 1 4.2 2.3h2.7a1.9 1.9 0 0 1 1.9 1.6c.1 1 .4 1.9.7 2.8a1.9 1.9 0 0 1-.4 2L8 9.8a15 15 0 0 0 5.6 5.6l1.1-1.1a1.9 1.9 0 0 1 2-.4c.9.3 1.8.6 2.8.7a1.9 1.9 0 0 1 1.5 1.9z"/>
+  </symbol>
+
+  <symbol id="icon-whatsapp" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M12.04 2C6.6 2 2.2 6.4 2.2 11.84c0 1.74.46 3.44 1.32 4.94L2.05 22l5.35-1.4a9.8 9.8 0 0 0 4.64 1.18h.01c5.43 0 9.84-4.4 9.84-9.84S17.47 2 12.04 2zm0 17.93h-.01a8.2 8.2 0 0 1-4.16-1.14l-.3-.18-3.17.83.85-3.09-.2-.32a8.14 8.14 0 0 1-1.25-4.35 8.18 8.18 0 0 1 14-5.78 8.1 8.1 0 0 1 2.4 5.79 8.19 8.19 0 0 1-8.16 8.24zm4.49-6.16c-.25-.13-1.46-.72-1.69-.8-.22-.08-.39-.13-.55.13s-.63.8-.77.96c-.14.17-.28.19-.53.06a6.7 6.7 0 0 1-1.97-1.21 7.4 7.4 0 0 1-1.36-1.7c-.14-.25-.02-.38.11-.5.11-.12.25-.29.38-.44.12-.15.16-.25.25-.42.08-.17.04-.32-.02-.45-.06-.13-.55-1.34-.76-1.83-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.64.31-.22.25-.84.82-.84 2s.86 2.32.98 2.48c.13.17 1.7 2.6 4.12 3.64.58.25 1.03.4 1.38.51.58.19 1.1.16 1.52.1.46-.07 1.46-.6 1.66-1.18.21-.58.21-1.07.15-1.18-.06-.1-.23-.17-.48-.29z"/>
+  </symbol>
+
+  <symbol id="icon-map-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M19.5 10.3c0 5.4-7.5 11.2-7.5 11.2s-7.5-5.8-7.5-11.2a7.5 7.5 0 0 1 15 0z"/>
+    <circle cx="12" cy="10.2" r="2.7"/>
+  </symbol>
+
+  <symbol id="icon-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="12" r="9.2"/><path d="M12 6.6V12l3.6 2.2"/>
+  </symbol>
+
+  <symbol id="icon-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="2.8" y="2.8" width="18.4" height="18.4" rx="5.2"/>
+    <circle cx="12" cy="12" r="4"/><path d="M17.4 6.6h.01"/>
+  </symbol>
+
+  <symbol id="icon-facebook" viewBox="0 0 24 24" fill="currentColor">
+    <path d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06C2 17.08 5.66 21.24 10.44 22v-7.03H7.9v-2.91h2.54V9.85c0-2.52 1.49-3.91 3.77-3.91 1.1 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.78-1.63 1.57v1.89h2.78l-.45 2.91h-2.33V22C18.34 21.24 22 17.08 22 12.06z"/>
+  </symbol>
+
+  <symbol id="icon-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="12" cy="9" r="6"/><path d="m8.6 14.3-1.3 7L12 18.6l4.7 2.7-1.3-7"/>
+  </symbol>
+
+  <symbol id="icon-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+    <path d="M4 7h16M4 12h16M4 17h16"/>
+  </symbol>
+
+  <symbol id="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+    <path d="M6 6l12 12M18 6L6 18"/>
+  </symbol>
+</svg>
+
+
+<header class="header" id="inicio">
+  <div class="container header__inner">
+    <a class="brand" href="#inicio" aria-label="Clínica Veterinaria NEAL — inicio">
+      <img src="assets/img/logo.png" alt="" width="566" height="838" fetchpriority="high">
+      <span>
+        <span class="brand__name">NEAL</span>
+        <span class="brand__sub">Clínica Veterinaria</span>
+      </span>
+    </a>
+
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal" aria-label="Abrir menú">
+      <svg class="icon-open" aria-hidden="true"><use href="#icon-menu"></use></svg>
+      <svg class="icon-close" aria-hidden="true"><use href="#icon-close"></use></svg>
+    </button>
+
+    <nav class="nav" id="menu-principal" aria-label="Menú principal">
+      <a href="#servicios">Servicios</a>
+      <a href="#diagnostico">Diagnóstico</a>
+      <a href="#obra-social">Obra social</a>
+      <a href="#profesional">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+      <!-- TODO: confirm that 3625 351608 is the WhatsApp line. -->
+      <a class="btn btn--whatsapp btn--sm" href="https://wa.me/5493625351608?text=Hola%2C%20quiero%20hacer%20una%20consulta%20para%20mi%20mascota." target="_blank" rel="noopener">
+        <svg aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+        WhatsApp
+      </a>
+    </nav>
+  </div>
+</header>
+
+
+<main id="contenido">
+
+  <!-- ===================== Hero ===================== -->
+  <section class="hero">
+    <svg class="paw-deco paw-deco--1" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-paw"></use></svg>
+    <svg class="paw-deco paw-deco--2" viewBox="0 0 24 24" aria-hidden="true"><use href="#icon-paw"></use></svg>
+
+    <div class="container hero__grid">
+      <div class="hero__content">
+        <p class="hero__badge">
+          <span><svg aria-hidden="true"><use href="#icon-paw"></use></svg></span>
+          Grandes y pequeños animales
+        </p>
+
+        <h1>Cuidamos lo que <span class="hand">más querés</span></h1>
+
+        <p class="hero__lead">
+          Clínica, cirugías y asesoramiento veterinario con estudios de diagnóstico en el mismo lugar.
+          Atención cercana a cargo del <strong>Dr. Persoglia Juan Darío</strong>, Médico Veterinario M.P. N° 1175.
+        </p>
+
+        <div class="hero__cta">
+          <a class="btn btn--whatsapp" href="https://wa.me/5493625351608?text=Hola%2C%20quiero%20hacer%20una%20consulta%20para%20mi%20mascota." target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+            Escribinos por WhatsApp
+          </a>
+          <a class="btn btn--ghost" href="tel:+543625351608">
+            <svg aria-hidden="true"><use href="#icon-phone"></use></svg>
+            3625 351608
+          </a>
+        </div>
+
+        <ul class="hero__meta">
+          <li><svg aria-hidden="true"><use href="#icon-shield-check"></use></svg> Obra social propia O.S. Neal</li>
+          <li><svg aria-hidden="true"><use href="#icon-lab"></use></svg> Ecografía, Rx y laboratorio</li>
+          <li><svg aria-hidden="true"><use href="#icon-shop"></use></svg> Pet shop y farmacia</li>
+        </ul>
+      </div>
+
+      <div class="hero__visual">
+        <div class="hero__card">
+          <img src="assets/img/logo.png" alt="Logotipo de Clínica Veterinaria NEAL: siluetas de vaca, caballo, perro y gato" width="566" height="838" fetchpriority="high">
+          <p class="hero__card-name">NEAL <small>Clínica Veterinaria</small></p>
+          <p class="hand">Juntos por su bienestar</p>
+        </div>
+        <div class="hero__blob" aria-hidden="true"></div>
+      </div>
+    </div>
+
+    <svg class="hero__wave" viewBox="0 0 1440 90" preserveAspectRatio="none" aria-hidden="true">
+      <path fill="currentColor" d="M0 52c180-44 360-52 540-24s360 62 540 34 260-46 360-38v66H0z"/>
+    </svg>
+  </section>
+
+
+  <!-- ===================== Trust strip ===================== -->
+  <div class="container">
+    <ul class="trust reveal">
+      <li class="trust__item">
+        <svg aria-hidden="true"><use href="#icon-award"></use></svg>
+        <span><strong>M.P. N° 1175</strong><span>Profesional matriculado</span></span>
+      </li>
+      <li class="trust__item">
+        <svg aria-hidden="true"><use href="#icon-livestock"></use></svg>
+        <span><strong>Pequeños y grandes</strong><span>Mascotas y animales de campo</span></span>
+      </li>
+      <li class="trust__item">
+        <svg aria-hidden="true"><use href="#icon-shield-check"></use></svg>
+        <span><strong>O.S. Neal</strong><span>Obra social para mascotas</span></span>
+      </li>
+      <li class="trust__item">
+        <svg aria-hidden="true"><use href="#icon-heart-pulse"></use></svg>
+        <span><strong>Todo en un lugar</strong><span>Consulta, estudios y farmacia</span></span>
+      </li>
+    </ul>
+  </div>
+
+
+  <!-- ===================== Services ===================== -->
+  <section class="section" id="servicios">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Nuestros servicios</span>
+        <h2>Todo lo que tu mascota necesita</h2>
+        <p>Desde el control de rutina hasta la cirugía: un solo equipo acompaña cada etapa de su salud.</p>
+      </div>
+
+      <ul class="services reveal">
+        <li class="service">
+          <div class="service__icon"><svg aria-hidden="true"><use href="#icon-stethoscope"></use></svg></div>
+          <h3>Consultas</h3>
+          <p>Diagnóstico clínico y seguimiento personalizado para perros, gatos y otras especies.</p>
+        </li>
+        <li class="service">
+          <div class="service__icon"><svg aria-hidden="true"><use href="#icon-syringe"></use></svg></div>
+          <h3>Vacunación</h3>
+          <p>Planes completos de vacunación con recordatorio de refuerzos y libreta sanitaria.</p>
+        </li>
+        <li class="service">
+          <div class="service__icon"><svg aria-hidden="true"><use href="#icon-paw"></use></svg></div>
+          <h3>Desparasitación</h3>
+          <p>Tratamientos internos y externos según la edad, el peso y el entorno de tu mascota.</p>
+        </li>
+        <li class="service">
+          <div class="service__icon"><svg aria-hidden="true"><use href="#icon-heart-pulse"></use></svg></div>
+          <h3>Control de salud</h3>
+          <p>Chequeos preventivos para detectar a tiempo lo que no se ve a simple vista.</p>
+        </li>
+        <li class="service">
+          <div class="service__icon"><svg aria-hidden="true"><use href="#icon-surgery"></use></svg></div>
+          <h3>Cirugías</h3>
+          <p>Cirugías generales y programadas con evaluación prequirúrgica y control posoperatorio.</p>
+        </li>
+        <li class="service">
+          <div class="service__icon"><svg aria-hidden="true"><use href="#icon-tooth"></use></svg></div>
+          <h3>Salud dental</h3>
+          <p>Limpieza, extracciones y cuidado bucal para evitar dolor e infecciones.</p>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+
+  <!-- ===================== Diagnostics ===================== -->
+  <section class="section section--tint" id="diagnostico">
+    <div class="container split reveal">
+      <div class="split__content">
+        <span class="eyebrow">Diagnóstico</span>
+        <h2>Estudios en el día, sin derivaciones</h2>
+        <p>
+          Contamos con equipamiento propio para estudiar a tu mascota en el momento de la consulta.
+          Menos viajes, menos espera y un diagnóstico más rápido para empezar el tratamiento cuanto antes.
+        </p>
+        <ul class="checklist">
+          <li><svg aria-hidden="true"><use href="#icon-check"></use></svg> Ecografías abdominales y de control</li>
+          <li><svg aria-hidden="true"><use href="#icon-check"></use></svg> Radiografías (Rx) digitales</li>
+          <li><svg aria-hidden="true"><use href="#icon-check"></use></svg> Análisis de laboratorio</li>
+          <li><svg aria-hidden="true"><use href="#icon-check"></use></svg> Asesoramiento e interpretación de resultados</li>
+        </ul>
+      </div>
+
+      <div class="split__media">
+        <div class="tile">
+          <svg aria-hidden="true"><use href="#icon-ultrasound"></use></svg>
+          <strong>Ecografía</strong><span>Imagen en tiempo real, sin dolor</span>
+        </div>
+        <div class="tile">
+          <svg aria-hidden="true"><use href="#icon-xray"></use></svg>
+          <strong>Radiografía</strong><span>Huesos, tórax y abdomen</span>
+        </div>
+        <div class="tile">
+          <svg aria-hidden="true"><use href="#icon-lab"></use></svg>
+          <strong>Laboratorio</strong><span>Hemogramas y bioquímica</span>
+        </div>
+        <div class="tile tile--accent">
+          <svg aria-hidden="true"><use href="#icon-stethoscope"></use></svg>
+          <strong>Asesoramiento</strong><span>Te explicamos cada resultado</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== O.S. Neal ===================== -->
+  <section class="section plan" id="obra-social">
+    <div class="container plan__grid reveal">
+      <div>
+        <img class="plan__logo" src="assets/img/logo-white.png" alt="" width="566" height="838" loading="lazy">
+        <span class="eyebrow">O.S. Neal</span>
+        <h2>La obra social de tu mascota</h2>
+        <p>
+          Un plan pensado para que la salud de tu compañero no dependa de un gasto inesperado.
+          Con <strong>O.S. Neal</strong> accedés a la atención de la clínica con beneficios durante todo el año.
+        </p>
+        <ul class="plan__benefits">
+          <li><svg aria-hidden="true"><use href="#icon-check"></use></svg> Consultas y controles incluidos</li>
+          <li><svg aria-hidden="true"><use href="#icon-check"></use></svg> Beneficios en vacunas y desparasitación</li>
+          <li><svg aria-hidden="true"><use href="#icon-check"></use></svg> Descuentos en estudios y cirugías</li>
+          <li><svg aria-hidden="true"><use href="#icon-check"></use></svg> Cuota mensual accesible, sin sorpresas</li>
+        </ul>
+        <div class="plan__cta">
+          <a class="btn btn--light" href="https://wa.me/5493625351608?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20obra%20social%20O.S.%20Neal." target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+            Quiero asociarme
+          </a>
+          <a class="btn btn--outline-light" href="#contacto">Ver cómo llegar</a>
+        </div>
+      </div>
+
+      <div class="plan__card">
+        <span class="hand">Juntos por su bienestar</span>
+        <h3>¿Cómo funciona?</h3>
+        <p>
+          Te asesoramos según la edad y la especie de tu mascota, elegís el plan que mejor se adapte
+          y desde el primer mes ya contás con los beneficios en la clínica.
+        </p>
+        <p>
+          Consultá los planes vigentes y las condiciones por WhatsApp: te respondemos con el detalle completo.
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== Shop, pharmacy & grooming ===================== -->
+  <section class="section">
+    <div class="container split split--reverse reveal">
+      <div class="split__content">
+        <span class="eyebrow">Además</span>
+        <h2>Pet shop, farmacia y peluquería</h2>
+        <p>
+          Todo lo que necesitás para el día a día, con el asesoramiento de un veterinario al lado.
+          Alimentos balanceados, medicación bajo receta y baño y corte con trato paciente.
+        </p>
+        <ul class="pills">
+          <li>Alimento balanceado</li>
+          <li>Accesorios</li>
+          <li>Antiparasitarios</li>
+          <li>Medicación</li>
+          <li>Baño y corte</li>
+          <li>Higiene</li>
+        </ul>
+      </div>
+
+      <div class="split__media">
+        <div class="tile">
+          <svg aria-hidden="true"><use href="#icon-shop"></use></svg>
+          <strong>Pet Shop</strong><span>Alimentos y accesorios</span>
+        </div>
+        <div class="tile">
+          <svg aria-hidden="true"><use href="#icon-pharmacy"></use></svg>
+          <strong>Farmacia</strong><span>Medicación veterinaria</span>
+        </div>
+        <div class="tile">
+          <svg aria-hidden="true"><use href="#icon-scissors"></use></svg>
+          <strong>Peluquería</strong><span>Baño, corte y cuidado</span>
+        </div>
+        <div class="tile tile--accent">
+          <svg aria-hidden="true"><use href="#icon-livestock"></use></svg>
+          <strong>Grandes animales</strong><span>Clínica y asesoramiento a campo</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== Professional ===================== -->
+  <section class="section section--tint" id="profesional">
+    <div class="container">
+      <div class="vet reveal">
+        <div class="vet__avatar">
+          <img src="assets/img/logo.png" alt="" width="566" height="838" loading="lazy">
+        </div>
+        <div>
+          <span class="eyebrow">Quién te atiende</span>
+          <h2>Persoglia Juan Darío</h2>
+          <p class="vet__role">
+            <svg aria-hidden="true"><use href="#icon-award"></use></svg>
+            Médico Veterinario — M.P. N° 1175
+          </p>
+          <p>
+            Atención clínica, quirúrgica y de asesoramiento tanto para mascotas como para producción
+            de grandes animales. Un mismo profesional acompaña el caso de principio a fin: diagnóstico,
+            tratamiento y seguimiento.
+          </p>
+          <p>
+            Porque sabemos que no se trata solo de un animal:
+            <span class="hand">cuidamos lo que más querés</span>.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== Contact ===================== -->
+  <section class="section" id="contacto">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Contacto</span>
+        <h2>Estamos para ayudarte</h2>
+        <p>Escribinos, llamanos o acercate. Te respondemos a la brevedad.</p>
+      </div>
+
+      <div class="contact-grid reveal">
+        <a class="contact-card" href="https://wa.me/5493625351608?text=Hola%2C%20quiero%20hacer%20una%20consulta%20para%20mi%20mascota." target="_blank" rel="noopener">
+          <span class="contact-card__icon"><svg aria-hidden="true"><use href="#icon-whatsapp"></use></svg></span>
+          <strong>WhatsApp</strong>
+          <span class="contact-card__value">3625 351608</span>
+          <span>Turnos y consultas</span>
+        </a>
+
+        <a class="contact-card" href="tel:+543625351608">
+          <span class="contact-card__icon"><svg aria-hidden="true"><use href="#icon-phone"></use></svg></span>
+          <strong>Teléfono</strong>
+          <span class="contact-card__value">+54 3625 351608</span>
+          <span>Llamada directa</span>
+        </a>
+
+        <!-- TODO: replace href with the clinic's Google Maps link and fill in the address. -->
+        <a class="contact-card" href="https://maps.google.com/?q=Clinica+Veterinaria+NEAL" target="_blank" rel="noopener">
+          <span class="contact-card__icon"><svg aria-hidden="true"><use href="#icon-map-pin"></use></svg></span>
+          <strong>Dirección</strong>
+          <span class="contact-card__value">Calle y número</span>
+          <span>Localidad, Chaco — Cómo llegar</span>
+        </a>
+
+        <div class="contact-card">
+          <span class="contact-card__icon"><svg aria-hidden="true"><use href="#icon-clock"></use></svg></span>
+          <strong>Horarios de atención</strong>
+          <!-- TODO: confirm the real opening hours. -->
+          <ul class="hours">
+            <li><strong>Lunes a viernes</strong><span>08:00 – 12:00 · 16:00 – 20:00</span></li>
+            <li><strong>Sábados</strong><span>09:00 – 13:00</span></li>
+            <li><strong>Domingos</strong><span>Cerrado</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- TODO: paste the Google Maps "embed" iframe for the real address. -->
+      <div class="map reveal">
+        <iframe
+          title="Ubicación de Clínica Veterinaria NEAL en Google Maps"
+          src="https://www.google.com/maps?q=Chaco,%20Argentina&output=embed"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          allowfullscreen></iframe>
+        <a class="map__link" href="https://maps.google.com/?q=Clinica+Veterinaria+NEAL" target="_blank" rel="noopener">
+          <svg aria-hidden="true"><use href="#icon-map-pin"></use></svg>
+          Abrir en Google Maps
+        </a>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===================== Final CTA ===================== -->
+  <section class="section" style="padding-top:0">
+    <div class="container">
+      <div class="cta-band reveal">
+        <span class="hand">Juntos por su bienestar</span>
+        <h2>Pedí tu turno hoy</h2>
+        <p>Contanos qué le pasa a tu mascota y coordinamos la atención que necesita.</p>
+        <div class="cta-band__actions">
+          <a class="btn btn--light" href="https://wa.me/5493625351608?text=Hola%2C%20quiero%20pedir%20un%20turno." target="_blank" rel="noopener">
+            <svg aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+            Pedir turno por WhatsApp
+          </a>
+          <a class="btn btn--outline-light" href="tel:+543625351608">
+            <svg aria-hidden="true"><use href="#icon-phone"></use></svg>
+            Llamar ahora
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer__grid">
+      <div>
+        <div class="footer__brand">
+          <img src="assets/img/logo-white.png" alt="" width="566" height="838" loading="lazy">
+          <span>
+            <strong>NEAL</strong>
+            <span>Clínica Veterinaria</span>
+          </span>
+        </div>
+        <p>Clínica, cirugías y asesoramiento en grandes y pequeños animales.</p>
+        <div class="socials">
+          <a href="https://www.instagram.com/clinicaveterinarianeal/" target="_blank" rel="noopener" aria-label="Instagram de Clínica Veterinaria NEAL">
+            <svg aria-hidden="true"><use href="#icon-instagram"></use></svg>
+          </a>
+          <!-- TODO: replace with the clinic's Facebook page URL. -->
+          <a href="https://www.facebook.com/" target="_blank" rel="noopener" aria-label="Facebook de Clínica Veterinaria NEAL">
+            <svg aria-hidden="true"><use href="#icon-facebook"></use></svg>
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <h4>Servicios</h4>
+        <ul class="footer__links">
+          <li><a href="#servicios">Consultas y vacunación</a></li>
+          <li><a href="#servicios">Cirugías y salud dental</a></li>
+          <li><a href="#diagnostico">Ecografía, Rx y laboratorio</a></li>
+          <li><a href="#obra-social">Obra social O.S. Neal</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Contacto</h4>
+        <ul class="footer__links">
+          <li><a href="tel:+543625351608">+54 3625 351608</a></li>
+          <li><a href="https://wa.me/5493625351608" target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><a href="https://www.instagram.com/clinicaveterinarianeal/" target="_blank" rel="noopener">@clinicaveterinarianeal</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Atención</h4>
+        <ul class="footer__links">
+          <li>Lunes a viernes: 08:00 – 12:00 · 16:00 – 20:00</li>
+          <li>Sábados: 09:00 – 13:00</li>
+          <li>Domingos: cerrado</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <p style="margin:0">© <span data-year>2026</span> Clínica Veterinaria NEAL. Todos los derechos reservados.</p>
+      <p style="margin:0">Dir. Técnico: Persoglia Juan Darío — M.P. N° 1175</p>
+    </div>
+  </div>
+</footer>
+
+
+<a class="fab" id="fab-whatsapp" href="https://wa.me/5493625351608?text=Hola%2C%20quiero%20hacer%20una%20consulta%20para%20mi%20mascota." target="_blank" rel="noopener" aria-label="Escribinos por WhatsApp">
+  <svg aria-hidden="true"><use href="#icon-whatsapp"></use></svg>
+  <span class="fab__label">WhatsApp</span>
+</a>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>

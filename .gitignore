@@ -1,0 +1,11 @@
+# Original signage photos (client material, kept local only)
+docs/
+
+# OS / editor
+.DS_Store
+Thumbs.db
+*.swp
+
+# Dev
+node_modules/
+*.log

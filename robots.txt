@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# TODO: update when the clinic gets its own domain.
+Sitemap: https://acantoscurria.github.io/clinica-veterinaria-neal/sitemap.xml
