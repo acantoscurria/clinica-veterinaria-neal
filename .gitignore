@@ -9,3 +9,6 @@ Thumbs.db
 # Dev
 node_modules/
 *.log
+
+# Notas de trabajo (no van al repositorio público)
+NOTAS-INTERNAS.md

@@ -14,7 +14,7 @@ import os
 import sys
 
 PORT = int(sys.argv[1]) if len(sys.argv) > 1 else 8765
-BLOCKED = {'docs', 'serve.py', 'README.md', '.gitignore', '.git'}
+BLOCKED = {'docs', 'serve.py', 'README.md', 'NOTAS-INTERNAS.md', 'LICENSE', '.gitignore', '.git'}
 
 
 class Handler(http.server.SimpleHTTPRequestHandler):
